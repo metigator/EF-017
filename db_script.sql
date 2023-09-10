@@ -1,9 +1,14 @@
 USE [master]
 GO
-/****** Object:  Database [EF016]    Script Date: 2023-08-14 4:00:25 PM ******/
-CREATE DATABASE [EF016];
+/****** Object:  Database [EF017]    Script Date: 2023-09-10 11:22:37 AM ******/
+CREATE DATABASE [EF017]
 GO
-USE [EF016]
+USE [EF017]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_InstructorAvailability]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE FUNCTION [dbo].[fn_InstructorAvailability](
@@ -40,36 +45,7 @@ BEGIN
     RETURN @Result
 END
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[__EFMigrationsHistory](
-	[MigrationId] [nvarchar](150) NOT NULL,
-	[ProductVersion] [nvarchar](32) NOT NULL,
- CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
-(
-	[MigrationId] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Coporates]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Coporates](
-	[Id] [int] NOT NULL,
-	[Company] [nvarchar](max) NOT NULL,
-	[JobTitle] [nvarchar](max) NOT NULL,
- CONSTRAINT [PK_Coporates] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Courses]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Table [dbo].[Courses]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -85,7 +61,7 @@ CREATE TABLE [dbo].[Courses](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Enrollments]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Table [dbo].[Enrollments]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -100,23 +76,7 @@ CREATE TABLE [dbo].[Enrollments](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Individuals]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Individuals](
-	[Id] [int] NOT NULL,
-	[University] [nvarchar](max) NOT NULL,
-	[YearOfGraduation] [int] NOT NULL,
-	[IsIntern] [bit] NOT NULL,
- CONSTRAINT [PK_Individuals] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Instructors]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Table [dbo].[Instructors]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -132,53 +92,7 @@ CREATE TABLE [dbo].[Instructors](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Offices]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Offices](
-	[Id] [int] NOT NULL,
-	[OfficeName] [varchar](50) NOT NULL,
-	[OfficeLocation] [varchar](50) NOT NULL,
- CONSTRAINT [PK_Offices] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Particpants]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Particpants](
-	[Id] [int] NOT NULL,
-	[FName] [varchar](50) NOT NULL,
-	[LName] [varchar](50) NOT NULL,
- CONSTRAINT [PK_Particpants] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Reviews]    Script Date: 2023-08-14 4:00:25 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Reviews](
-	[Id] [int] NOT NULL,
-	[Feedback] [nvarchar](max) NULL,
-	[CourseId] [int] NOT NULL,
-	[CreatedAt] [datetime2](7) NOT NULL,
- CONSTRAINT [PK_Reviews] PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
-/****** Object:  Table [dbo].[Schedules]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Table [dbo].[Schedules]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -199,7 +113,7 @@ CREATE TABLE [dbo].[Schedules](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Sections]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Table [dbo].[Sections]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -219,6 +133,166 @@ CREATE TABLE [dbo].[Sections](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+/****** Object:  View [dbo].[CourseOverview]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[CourseOverview] AS
+SELECT 
+    c.CourseName,
+    sec.SectionName,
+    i.FName AS InstructorFirstName,
+    i.LName AS InstructorLastName,
+    sch.ScheduleType,
+    CONCAT(CASE WHEN sch.SUN = 1 THEN 'Sun, ' ELSE '' END,
+           CASE WHEN sch.MON = 1 THEN 'Mon, ' ELSE '' END,
+           CASE WHEN sch.TUE = 1 THEN 'Tue, ' ELSE '' END,
+           CASE WHEN sch.WED = 1 THEN 'Wed, ' ELSE '' END,
+           CASE WHEN sch.THU = 1 THEN 'Thu, ' ELSE '' END,
+           CASE WHEN sch.FRI = 1 THEN 'Fri, ' ELSE '' END,
+           CASE WHEN sch.SAT = 1 THEN 'Sat' ELSE '' END) AS CourseDays,
+    sec.StartTime,
+    sec.EndTime,
+    sec.StartDate,
+    sec.EndDate,
+    COUNT(e.ParticipantId) AS NumberOfEnrolledParticipants
+FROM 
+    Courses c
+    JOIN Sections sec ON c.Id = sec.CourseId
+    JOIN Instructors i ON sec.InstructorId = i.Id
+    JOIN Schedules sch ON sec.ScheduleId = sch.Id
+    LEFT JOIN Enrollments e ON sec.Id = e.SectionId
+GROUP BY
+    c.CourseName, 
+    sec.SectionName, 
+    i.FName, 
+    i.LName, 
+    sch.ScheduleType, 
+    sec.StartTime, 
+    sec.EndTime, 
+    sec.StartDate, 
+    sec.EndDate,
+    sch.SUN, 
+    sch.MON, 
+    sch.TUE, 
+    sch.WED, 
+    sch.THU, 
+    sch.FRI, 
+    sch.SAT;
+GO
+/****** Object:  UserDefinedFunction [dbo].[GetSectionsExceedingParticipantCount]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE FUNCTION [dbo].[GetSectionsExceedingParticipantCount](@numberOfParticipants int)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT s.*
+    FROM Sections AS s
+    WHERE 
+    (
+        SELECT COUNT(*) 
+        FROM Enrollments AS e
+        WHERE s.Id = e.SectionId
+    ) >= @numberOfParticipants
+)
+GO
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[__EFMigrationsHistory](
+	[MigrationId] [nvarchar](150) NOT NULL,
+	[ProductVersion] [nvarchar](32) NOT NULL,
+ CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY CLUSTERED 
+(
+	[MigrationId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Coporates]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Coporates](
+	[Id] [int] NOT NULL,
+	[Company] [nvarchar](max) NOT NULL,
+	[JobTitle] [nvarchar](max) NOT NULL,
+ CONSTRAINT [PK_Coporates] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Individuals]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Individuals](
+	[Id] [int] NOT NULL,
+	[University] [nvarchar](max) NOT NULL,
+	[YearOfGraduation] [int] NOT NULL,
+	[IsIntern] [bit] NOT NULL,
+ CONSTRAINT [PK_Individuals] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Offices]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Offices](
+	[Id] [int] NOT NULL,
+	[OfficeName] [varchar](50) NOT NULL,
+	[OfficeLocation] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Offices] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Particpants]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Particpants](
+	[Id] [int] NOT NULL,
+	[FName] [varchar](50) NOT NULL,
+	[LName] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_Particpants] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Reviews]    Script Date: 2023-09-10 11:22:37 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Reviews](
+	[Id] [int] NOT NULL,
+	[Feedback] [nvarchar](max) NULL,
+	[CourseId] [int] NOT NULL,
+	[CreatedAt] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_Reviews] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20230814194258_initial', N'7.0.5')
 GO
@@ -15032,37 +15106,37 @@ INSERT [dbo].[Sections] ([Id], [SectionName], [CourseId], [InstructorId], [Sched
 GO
 INSERT [dbo].[Sections] ([Id], [SectionName], [CourseId], [InstructorId], [ScheduleId], [StartDate], [EndDate], [StartTime], [EndTime]) VALUES (200, N'800DD6AC', 13, 100, 2, CAST(N'2016-07-14' AS Date), CAST(N'2016-10-01' AS Date), CAST(N'08:00:00' AS Time), CAST(N'10:00:00' AS Time))
 GO
-/****** Object:  Index [IX_Enrollments_ParticipantId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Enrollments_ParticipantId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE NONCLUSTERED INDEX [IX_Enrollments_ParticipantId] ON [dbo].[Enrollments]
 (
 	[ParticipantId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Instructors_OfficeId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Instructors_OfficeId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE UNIQUE NONCLUSTERED INDEX [IX_Instructors_OfficeId] ON [dbo].[Instructors]
 (
 	[OfficeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Reviews_CourseId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Reviews_CourseId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE NONCLUSTERED INDEX [IX_Reviews_CourseId] ON [dbo].[Reviews]
 (
 	[CourseId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Sections_CourseId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Sections_CourseId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE NONCLUSTERED INDEX [IX_Sections_CourseId] ON [dbo].[Sections]
 (
 	[CourseId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Sections_InstructorId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Sections_InstructorId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE NONCLUSTERED INDEX [IX_Sections_InstructorId] ON [dbo].[Sections]
 (
 	[InstructorId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 GO
-/****** Object:  Index [IX_Sections_ScheduleId]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  Index [IX_Sections_ScheduleId]    Script Date: 2023-09-10 11:22:37 AM ******/
 CREATE NONCLUSTERED INDEX [IX_Sections_ScheduleId] ON [dbo].[Sections]
 (
 	[ScheduleId] ASC
@@ -15120,13 +15194,14 @@ ON DELETE CASCADE
 GO
 ALTER TABLE [dbo].[Sections] CHECK CONSTRAINT [FK_Sections_Schedules_ScheduleId]
 GO
-/****** Object:  StoredProcedure [dbo].[sp_GetSectionDetails]    Script Date: 2023-08-14 4:00:25 PM ******/
+/****** Object:  StoredProcedure [dbo].[sp_GetSectionWithninDateRange]    Script Date: 2023-09-10 11:22:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [dbo].[sp_GetSectionDetails]
-    @SectionId INT
+CREATE PROCEDURE [dbo].[sp_GetSectionWithninDateRange]
+    @StartDate DATE,
+	@EndDate DATE
 AS
 BEGIN
     SELECT
@@ -15161,10 +15236,11 @@ BEGIN
     JOIN Courses C ON S.CourseId = C.Id
     JOIN Schedules SC ON S.ScheduleId = SC.Id
     JOIN Instructors I ON S.InstructorId = I.Id
-    WHERE S.Id = @SectionId
+    WHERE (S.StartDate BETWEEN @StartDate AND @EndDate) 
+   AND (S.EndDate BETWEEN @StartDate AND @EndDate)
 END;
 GO
 USE [master]
 GO
-ALTER DATABASE [EF016] SET  READ_WRITE 
+ALTER DATABASE [EF017] SET  READ_WRITE 
 GO
